@@ -9,7 +9,6 @@ import {
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart.items);
   const dispatch = useDispatch();
-
   const handleRemove = (id) => {
     dispatch(removeFromCArt(id));
   };
@@ -29,8 +28,8 @@ const Cart = () => {
       {cartItems.length == 0 ? (
         <p>Your Cart is Empty</p>
       ) : (
-        cartItems.map((item, index) => (
-          <div key={index}>
+        cartItems.map((item) => (
+          <div key={item.id}>
             <h3>{item.name}</h3>
             <p>Price: ${item.price}</p>
             <p>
